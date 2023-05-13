@@ -12,5 +12,9 @@ router.get("/signup", (req, res) => {
 router.post("/signup", async (req, res) => {
   const newUser = await UserModel.create(req.body);
   console.log("here is your new User", newUser);
+  res.redirect("/profile");
+});
+router.get("/profile", (req, res) => {
+  res.render("profile");
 });
 module.exports = router;
